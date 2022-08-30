@@ -10,24 +10,6 @@ class Task < ApplicationRecord
 
   private
 
-    # def set_slug
-    #   itr = 1
-    #   loop do
-    #     title_slug = title.parameterize
-    #     slug_candidate = itr > 1 ? "#{title_slug}-#{itr}" : title_slug
-    #     break self.slug = slug_candidate unless Task.exists?(slug: slug_candidate)
-
-    #     itr += 1
-    #   end
-    # end
-
-    # def set_slug
-    #   title_slug = title.parameterize
-    #   count = Task.where("slug LIKE ?", "#{title_slug}%").size
-    #   slug_candidate = count.positive? ? "#{title_slug}-#{count + 1}" : title_slug
-    #   self.slug = slug_candidate
-    # end
-
     def set_slug
       title_slug = title.parameterize
       regex_pattern = "slug #{Constants::DB_REGEX_OPERATOR} ?"
