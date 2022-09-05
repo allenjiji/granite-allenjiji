@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Granite
   class Application < Rails::Application
+    # config.factory_bot.definition_file_paths = ["custom/factories"]
+
     # previous code if any
     config.load_defaults 6.1
 
