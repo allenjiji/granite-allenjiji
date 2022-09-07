@@ -30,7 +30,7 @@ const Dashboard = ({ history }) => {
 
   const destroyTask = async slug => {
     try {
-      await tasksApi.destroy({ slug, quiet: true });
+      await tasksApi.destroy({ slug });
       await fetchTasks();
     } catch (error) {
       logger.error(error);

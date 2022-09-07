@@ -6,7 +6,6 @@ const TableHeader = ({ type }) => {
   const getTitleCase = compose(join(""), juxt([compose(toUpper, head), tail]));
 
   const title = `${getTitleCase(type)} Tasks`;
-
   return (
     <thead>
       <tr>
