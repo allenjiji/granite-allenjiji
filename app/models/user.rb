@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :tasks, dependent: :destroy, foreign_key: :user_id
+  has_many :created_tasks, foreign_key: :task_owner_id, class_name: "Task"
 
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :email,
