@@ -2,13 +2,14 @@
 
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  MAX_NAME_LENGTH = 25
 
   has_many :comments, dependent: :destroy
   has_many :tasks, dependent: :destroy, foreign_key: :user_id
 
-  validates :name, presence: true, length: { maximum: 35 }
+  validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :email,
-    presence  : true,
+    presence: true,
     uniqueness: { case_sensitive: false },
     length: { maximum: 50 },
     format: { with: VALID_EMAIL_REGEX }
