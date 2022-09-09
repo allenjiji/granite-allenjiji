@@ -14,8 +14,13 @@ class Task < ApplicationRecord
   validate :slug_not_changed
 
   before_create :set_slug
+  after_create :log_task_details
 
   private
+
+    def log_task_details
+      TaskLoggerJob.perform_later(self)
+    end
 
     def set_slug
       title_slug = title.parameterize
