@@ -9,22 +9,21 @@ const Input = ({
   value,
   onChange,
   placeholder,
-  disabled = false,
+  min,
+  max,
   required = true,
   className = "",
 }) => (
   <div className="mt-6">
     {label && (
-      <label
-        className="block text-sm font-medium
-              leading-5 text-bb-gray-700"
-      >
+      <label className="block text-sm font-medium leading-5 text-bb-gray-700">
         {label}
       </label>
     )}
     <div className="mt-1 rounded-md shadow-sm">
       <input
-        disabled={disabled}
+        max={max}
+        min={min}
         placeholder={placeholder}
         required={required}
         type={type}
@@ -46,6 +45,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   required: PropTypes.bool,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };
 
 export default Input;
